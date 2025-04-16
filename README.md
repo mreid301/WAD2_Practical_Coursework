@@ -1,6 +1,6 @@
-# 💃 Local Dance Lessons – Web Application
+# Local Dance Lessons – Web Application
 
-## 📝 Project Description
+## Project Description
 
 This web application allows users to register, log in, browse and join dance courses, and manage their account.  
 Admins can manage all courses and view participants.  
