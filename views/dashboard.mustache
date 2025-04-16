@@ -1,0 +1,34 @@
+<!-- 
+ * Page: Dashboard Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> partials/header }}
+  </head>
+  <body class="container mt-5">
+    <div class="p-4 bg-light rounded shadow-sm">
+      <h2 class="mb-3">Welcome, {{user.username}}!</h2>
+      <p class="lead">
+        You are logged in 
+        {{#user.isAdmin}}as an <strong>Admin</strong>{{/user.isAdmin}}
+        {{^user.isAdmin}}as a regular user{{/user.isAdmin}}.
+      </p>
+
+      <div class="mt-4">
+        <a href="/courses" class="btn btn-outline-primary me-2">Browse Courses</a>
+        {{^user.isAdmin}}
+          <a href="/courses/mine" class="btn btn-outline-info me-2">My Courses</a>
+        {{/user.isAdmin}}
+        {{#user.isAdmin}}
+          <a href="/courses/add" class="btn btn-outline-warning me-2">Add Course</a>
+        {{/user.isAdmin}}
+        <a href="/logout" class="btn btn-outline-danger">Logout</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!-- 
+ * Page: My Courses Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/header }}
+    <title>{{title}}</title>
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4">{{title}}</h1>
+
+    {{#courses}}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <h6 class="card-subtitle text-muted mb-2">{{duration}} | {{datetime}}</h6>
+          <p>{{description}}</p>
+          <p><strong>Location:</strong> {{location}}</p>
+          <p><strong>Price:</strong> {{price}}</p>
+          <form method="POST" action="/courses/leave/{{id}}" style="display:inline;">
+            <button class="btn btn-sm btn-outline-warning">Leave Course</button>
+          </form>
+        </div>
+      </div>
+    {{/courses}}
+
+    {{^courses}}
+      <p>You haven’t joined any courses yet.</p>
+    {{/courses}}
+
+    <a href="/courses" class="btn btn-secondary mt-3">Back to All Courses</a>
+  </body>
+</html>

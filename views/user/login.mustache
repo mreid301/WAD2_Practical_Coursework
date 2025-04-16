@@ -1,0 +1,41 @@
+<!-- 
+ * Page: Login Page Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/header }}
+    <title>Login</title>
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4 text-center">Login</h1>
+
+    {{#error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{/error}}
+
+    {{#success}}
+      <div class="alert alert-success">{{success}}</div>
+    {{/success}}
+
+    <form method="POST" action="/login" class="mx-auto" style="max-width: 400px;">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+
+    <p class="text-center mt-3">Don't have an account? <a href="/register">Register here</a></p>
+  </body>
+</html>

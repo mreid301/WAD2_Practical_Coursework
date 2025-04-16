@@ -1,0 +1,52 @@
+<!-- 
+ * Page: Course Form Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/header }}
+    <title>{{title}}</title>
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4">{{title}}</h1>
+
+    <form method="POST" action="">
+      <div class="mb-3">
+        <label class="form-label">Course Name:</label>
+        <input type="text" name="name" class="form-control" required value="{{course.name}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Duration:</label>
+        <input type="text" name="duration" class="form-control" required value="{{course.duration}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Date & Time:</label>
+        <input type="datetime-local" name="datetime" class="form-control" required value="{{course.datetime}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Description:</label>
+        <textarea name="description" class="form-control">{{course.description}}</textarea>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Location:</label>
+        <input type="text" name="location" class="form-control" required value="{{course.location}}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Price:</label>
+        <input type="text" name="price" class="form-control" required value="{{course.price}}">
+      </div>
+
+      <button type="submit" class="btn btn-success">Save Course</button>
+      <a href="/courses" class="btn btn-secondary">Cancel</a>
+    </form>
+  </body>
+</html>

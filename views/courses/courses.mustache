@@ -1,0 +1,78 @@
+<!-- 
+ * Page: Courses List Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> partials/header }}
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4">{{title}}</h1>
+
+    {{#user.isAdmin}}
+      <div class="mb-3 text-end">
+        <a href="/courses/add" class="btn btn-success">Add Course</a>
+      </div>
+    {{/user.isAdmin}}
+
+    <form method="GET" action="/courses" class="mb-4">
+      <input type="text" name="search" value="{{search}}" placeholder="Search by name or location" class="form-control" />
+    </form>
+
+    {{#courses}}
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <h6 class="card-subtitle text-muted mb-2">{{duration}} | {{datetime}}</h6>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text"><strong>Location:</strong> {{location}}</p>
+          <p class="card-text"><strong>Price:</strong> {{price}}</p>
+          <div class="mt-3">
+            {{#user}}
+              {{^user.isAdmin}}
+                <form method="POST" action="/courses/join/{{id}}" style="display:inline;">
+                  <button class="btn btn-sm btn-outline-success">Join</button>
+                </form>
+              {{/user.isAdmin}}
+            {{/user}}
+            {{#user.isAdmin}}
+              <a href="/courses/update/{{id}}" class="btn btn-sm btn-outline-primary">Edit</a>
+              <form method="POST" action="/courses/delete/{{id}}" style="display:inline;">
+                <button class="btn btn-sm btn-outline-danger">Delete</button>
+              </form>
+              <a href="/courses/participants/{{id}}" class="btn btn-sm btn-outline-info">Participants</a>
+            {{/user.isAdmin}}
+          </div>
+        </div>
+      </div>
+    {{/courses}}
+
+    {{^courses}}
+      <p class="text-muted">No courses found.</p>
+    {{/courses}}
+
+    {{#totalPages}}
+      <nav aria-label="Pagination">
+        <ul class="pagination justify-content-center mt-4">
+          {{#prevPage}}
+            <li class="page-item">
+              <a class="page-link" href="?page={{prevPage}}{{#search}}&search={{search}}{{/search}}">Previous</a>
+            </li>
+          {{/prevPage}}
+          <li class="page-item disabled">
+            <span class="page-link">Page {{currentPage}} of {{totalPages}}</span>
+          </li>
+          {{#nextPage}}
+            <li class="page-item">
+              <a class="page-link" href="?page={{nextPage}}{{#search}}&search={{search}}{{/search}}">Next</a>
+            </li>
+          {{/nextPage}}
+        </ul>
+      </nav>
+    {{/totalPages}}
+  </body>
+</html>

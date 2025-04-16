@@ -1,0 +1,57 @@
+<!-- 
+ * Page: Registration Page Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/header }}
+    <title>Register</title>
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4 text-center">Register</h1>
+
+    {{#error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{/error}}
+
+    {{#success}}
+      <div class="alert alert-success">{{success}}</div>
+    {{/success}}
+
+    <form method="POST" action="/register" class="mx-auto" style="max-width: 400px;">
+
+      <div class="mb-3">
+        <label class="form-label">First Name:</label>
+        <input type="text" name="first_name" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Last Name:</label>
+        <input type="text" name="last_name" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Email:</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Username:</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password:</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Register</button>
+    </form>
+
+    <p class="text-center mt-3">Already have an account? <a href="/login">Login here</a></p>
+  </body>
+</html>

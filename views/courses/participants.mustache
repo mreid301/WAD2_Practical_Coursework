@@ -1,0 +1,31 @@
+<!-- 
+ * Page: Participants List Template
+ * Title: WAD2 Practical Coursework
+ * Author: Matthew Reid
+ * Version: 1.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{> partials/header }}
+    <title>{{title}}</title>
+  </head>
+  <body class="container mt-5">
+    <h1 class="mb-4">{{title}}</h1>
+
+    {{#participants.length}}
+      <ul class="list-group">
+        {{#participants}}
+          <li class="list-group-item">{{.}}</li>
+        {{/participants}}
+      </ul>
+    {{/participants.length}}
+
+    {{^participants.length}}
+      <p>No participants have joined this course yet.</p>
+    {{/participants.length}}
+
+    <a href="/courses" class="btn btn-secondary mt-3">Back to Courses</a>
+  </body>
+</html>
