@@ -89,7 +89,7 @@ app.use((err, req, res, next) => {
 });
 
 // ====== Server Initialization ======
-const PORT = process.env.PORT || 3000; // Use environment port or default to 3000
+const PORT = process.env.PORT || 10000; // Use environment port or default to 3000
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`); // Log server startup message
 });
