@@ -8,7 +8,7 @@ Built using **Node.js**, **Express**, **Mustache**, **NeDB**, and **Bootstrap**.
 
 ---
 
-## 🔧 Installation Instructions
+## Installation Instructions
 
 1. **Install Dependencies**
    ```bash
