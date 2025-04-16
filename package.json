@@ -4,6 +4,7 @@
   "description": "Web Application Development 3 - Practical Coursework",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matthew Reid",
