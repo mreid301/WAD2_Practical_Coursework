@@ -1,0 +1,4 @@
+# Ignore sensitive and heavy files
+.env
+/node_modules
+*.db
